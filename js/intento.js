@@ -8,6 +8,7 @@ const opciones = {
         'accept': '*/*'  // Este es el header que pide el curl
     }
 };
+
 fetch(url, opciones)
     .then(response => {
         // Comprobamos si la respuesta es correcta (status 200-299)
@@ -17,10 +18,10 @@ fetch(url, opciones)
         // Convertimos la respuesta a JSON (el cuerpo de la respuesta)
         return response.json();
     })
-    .then(data => {   
-        console.log(data);
-      
-        data.items.forEach(personaje => {
+    .then(personajes => {   
+        console.log(personajes);
+        
+        personajes.items.forEach(personaje => {
             
             if(personaje.id==posicion){
                 console.log(personaje.name);
@@ -45,10 +46,9 @@ fetch(url, opciones)
                 text.appendChild(h3_1);
                 text.appendChild(h3__2);
                 text.appendChild(h3_3);
+               
                 
-                personaje.transformations.forEach(transformaciones=>{
-                    console.log("si"+transformaciones.id);
-                });
+              
                 
             }
         });
@@ -57,6 +57,48 @@ fetch(url, opciones)
     .catch(error => {
         // Capturamos cualquier error (problemas de red o de la API)
         console.error('Error al obtener los personajes:', error.message);
+    })
+    .finally(() => {
+        console.log("Petición de dragon ball finalizada");
+    });
+
+    const urlTransf=`https://dragonball-api.com/api/characters/${posicion}`;
+    const opciones2 = {
+        method: 'GET',  // Es una petición GET
+        headers: {
+            'accept': '*/*'  // Este es el header que pide el curl
+        }
+    };
+    fetch(urlTransf, opciones2)
+    .then(respu => {
+        // Comprobamos si la respuesta es correcta (status 200-299)
+        if (!respu.ok) {
+            throw new Error(`Error HTTP: ${respu.status}`);
+        }
+        // Convertimos la respuesta a JSON (el cuerpo de la respuesta)
+        return respu.json();
+    })
+    .then(date => {   
+        console.log(date);
+      
+        console.log(date.transformations);
+        const body =document.getElementById("transformaciones");
+        body.innerHTML="";
+        date.transformations.forEach(transformacion=>{
+            const card=document.createElement("div");
+            card.classList.add("character-card");
+            const img = document.createElement('img');
+            img.src = transformacion.image;  // Usa la propiedad 'image' para obtener la imagen
+            img.alt = transformacion.name;   // Usa el nombre del personaje como alt
+            card.appendChild(img); 
+            body.appendChild(card)  ;   
+            
+        })
+            
+    })
+    .catch(error => {
+        // Capturamos cualquier error (problemas de red o de la API)
+        console.error('Error al obtener los date:', error.message);
     })
     .finally(() => {
         console.log("Petición de dragon ball finalizada");
