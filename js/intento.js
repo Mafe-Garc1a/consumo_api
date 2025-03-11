@@ -91,7 +91,7 @@ fetch(url, opciones)
             img.src = transformacion.image;  // Usa la propiedad 'image' para obtener la imagen
             img.alt = transformacion.name;   // Usa el nombre del personaje como alt
             card.appendChild(img); 
-            body.appendChild(card)  ;   
+            body.appendChild(card);   
             
         })
             

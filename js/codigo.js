@@ -33,7 +33,7 @@ fetch(url, opciones)
         img.alt = personaje.name;   // Usa el nombre del personaje como alt
         card.appendChild(img);      
     
-        // Añadir el nombre y la raza
+        // Añadir el nombre y la raza y afiliacion
         const h3 = document.createElement('h3');
         h3.textContent = personaje.name;
         card.appendChild(h3);
