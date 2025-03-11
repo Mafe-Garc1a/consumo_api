@@ -1,0 +1,126 @@
+/* Reset basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    
+  }
+  nav{
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+  }
+  nav img{
+    width: 7%;
+    margin-left: 1.5em;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  #personajes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 10px;
+  }
+  
+  .character-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .character-card img {
+    width: 100%;
+    height: 400px;
+    border-radius: 4px;
+  }
+  .character-card img:hover{
+    width: 140%;
+    margin-left: -2em;
+  }
+  .character-card h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .character-card p {
+    color: #777;
+    font-size: 14px;
+    margin-top: 5px;
+}
+@media (max-width:1000px){
+  #personajes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 10px;
+  }
+  .character-card img {
+    width: 90%;
+    height: 370px;
+    border-radius: 4px;
+  }
+  .imagen{
+    width: 70%;
+  }
+  .character-card img:hover{
+    width: 120%;
+    margin-left: -2em;
+  }
+  nav{
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 35px;
+    position: fixed;
+  }
+  nav img{
+    width: 10%;
+    margin-left: 1.5em;
+  }
+
+}
+@media(max-width:400px){
+  #personajes {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    padding: 10px;
+  }
+  .character-card img {
+    width: 80%;
+    height: 370px;
+    border-radius: 4px;
+  }
+  .imagen{
+    width: 70%;
+  }
+  .character-card img:hover{
+    width: 120%;
+    margin-left: -2em;
+  }
+  nav{
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 40px;
+    position: fixed;
+  }
+  nav img{
+    width: 15%;
+    margin-left: 1.5em;
+  }
+
+}
