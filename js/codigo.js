@@ -1,4 +1,7 @@
-const url = `https://dragonball-api.com/api/characters?page=1&limit=58`;
+let pagina = 1; 
+let numItems= 10; 
+
+const url= `https://dragonball-api.com/api/characters?page=${pagina}&limit=${numItems}`;
  // Configuración de la petición
 const opciones = {
     method: 'GET',  // Es una petición GET
@@ -8,7 +11,7 @@ const opciones = {
 };
 
 
-
+function api(url){
     // Realizamos la petición con fetch
 fetch(url, opciones)
     .then(response => {
@@ -50,8 +53,32 @@ fetch(url, opciones)
                 let posicion = personaje.id;
                 localStorage.setItem('posicion', JSON.stringify(posicion));
             });
-            
-    });
+        });
+        const botones = document.getElementById('boton');
+        botones.innerHTML=''
+        for(let i=0; i<data.meta.totalPages; i++){
+            const button = document.createElement('li');
+            button.classList.add("page-item", "page-link" , "mua")
+            button.textContent = i+1;
+            button.addEventListener('click', (event)=>{
+                let newPagina = event.target.textContent;
+                console.log(newPagina);
+                let newURL =  `https://dragonball-api.com/api/characters?page=${newPagina}&limit=${numItems}`
+                api(newURL)
+            }); 
+            botones.appendChild(button);
+        }
+        const inicio = document.getElementById('inicio');
+        inicio.addEventListener('click', () => {
+            let newUrl = `https://dragonball-api.com/api/characters?page=1&limit=10`
+            api(newUrl)
+        });
+
+        const final = document.getElementById('final');
+        final.addEventListener('click', () => {
+            let newUrl = `https://dragonball-api.com/api/characters?page=6&limit=10`
+            api(newUrl)
+        });
     })
     .catch(error => {
         // Capturamos cualquier error (problemas de red o de la API)
@@ -62,4 +89,5 @@ fetch(url, opciones)
     });
 
     
-    
+};
+api(url);

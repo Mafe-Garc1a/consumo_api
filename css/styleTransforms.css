@@ -92,3 +92,56 @@ body{
 } */
 
 
+@media (max-width:1000px){
+  .container {
+    width: 700%;
+    max-width: 2000px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+ .container img{
+    width: 80%;
+    height: 400px;
+    margin-left: 6em; 
+}
+.container img:hover{
+    width: 110%;
+    height: 420px;
+    
+    
+}
+  
+}
+@media(max-width:400px){
+  #transformaciones {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    padding: 10px;
+  }
+  
+  #transformaciones .character-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  #transformaciones .character-card img {
+    width: 90%;
+    height: 370px;
+    border-radius: 4px;
+    margin-left: -3em;
+  }
+ #transformaciones .character-card img:hover{
+    width: 120%;
+    margin-left: -1.5em;
+  }
+
+
+
+}
