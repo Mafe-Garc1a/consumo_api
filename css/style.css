@@ -92,7 +92,12 @@
     width: 10%;
     margin-left: 1.5em;
   }
-
+  .inicio{
+    margin-top: 7.8em;
+}
+.mua{
+  color: black;
+}
 }
 @media(max-width:400px){
   #personajes {
@@ -123,5 +128,7 @@
     width: 15%;
     margin-left: 1.5em;
   }
+
+
 
 }
